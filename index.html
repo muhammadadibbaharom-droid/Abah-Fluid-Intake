@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#2563eb">
+<title>Fluid Monitor</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main class="app">
+<header>
+  <div>
+    <p class="eyebrow">Daily Fluid Monitor</p>
+    <h1>💧 Fluid Intake</h1>
+    <p id="cycleLabel" class="muted"></p>
+  </div>
+  <button id="resetBtn" class="ghost" type="button">Reset current cycle</button>
+</header>
+
+<section class="card summary">
+  <div class="amount-row">
+    <div><span class="label">Current cycle</span><strong><span id="total">0</span> mL</strong></div>
+    <div class="limit"><span class="label">Daily limit</span><strong>500 mL</strong></div>
+  </div>
+  <div class="progress-track"><div id="progress" class="progress"></div></div>
+  <div class="remaining">
+    <span id="remainingText">500 mL remaining</span>
+    <span id="status" class="status ok">Within limit</span>
+  </div>
+</section>
+
+<section class="card">
+<h2>Add fluid intake</h2>
+<p class="muted small">Cycle runs from 6:00 AM to 5:59 AM the next day.</p>
+
+<label for="entryDate">Intake date</label>
+<input id="entryDate" type="date">
+
+<label for="entryTime">Intake time</label>
+<input id="entryTime" type="time">
+
+<label>Amount</label>
+<div id="quickButtons" class="quick-grid"></div>
+
+<label for="remark">Remark <span class="required">*</span></label>
+<input id="remark" type="text" maxlength="100" placeholder="e.g. Water, medicine, soup" autocomplete="off">
+
+<button id="submitBtn" class="primary submit" type="button">Submit intake</button>
+<p id="formError" class="error" role="alert"></p>
+</section>
+
+<section class="card">
+<div class="history-header">
+  <div>
+    <h2>Current cycle records</h2>
+    <p id="historyLabel" class="muted small"></p>
+  </div>
+  <button id="clearBtn" class="text-btn" type="button">Clear current cycle</button>
+</div>
+<div id="empty" class="empty">No fluid recorded in the current cycle.</div>
+<div id="entries" class="entries"></div>
+</section>
+
+<section class="card">
+<div class="history-header">
+  <div>
+    <h2>Historical summary</h2>
+    <p class="muted small">Completed 6 AM cycles</p>
+  </div>
+</div>
+<div id="summaryEmpty" class="empty">No completed cycles yet.</div>
+<div id="summaries" class="summaries"></div>
+</section>
+
+<footer><p>Fluid tracking only. The 500 mL limit is a tracking setting, not medical advice.</p></footer>
+</main>
+<script src="app.js"></script>
+</body>
+</html>
